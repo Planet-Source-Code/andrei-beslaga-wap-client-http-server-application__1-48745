@@ -1,0 +1,207 @@
+=======================================================================================
+Long       |short|  command    | command                          | command
+Command    | Cmd |  Arguments  | Description                      | Example
+=======================================================================================
+/unload      /xx                closes the SEQRAT server            /xx or /unload
+---------------------------------------------------------------------------------------
+/sendkeys    /02    keys        sends the keys in the argument to   /02 %{F}N
+                                current app (VB sendkeys format)
+---------------------------------------------------------------------------------------
+/run         /03    name&nr     executes program name               /03 notepad.exe1
+                                nr0 - hidden                             
+                                nr1 - normal with focus (default)        or
+                                nr2 - minimized with focus          /run notepad.exe
+                                nr3 - maximized with focus
+                                nr4 - normal no focus
+---------------------------------------------------------------------------------------
+/browse      /04    path        sends back files in path            /04 c:\windows\m*.*
+---------------------------------------------------------------------------------------
+/kill        /05    file        deletes the file                    /05 c:\test.txt
+---------------------------------------------------------------------------------------
+/exit        /08    option      option0 - logoff user               /08 0
+                                option1 - shutdown PC                  
+                                option2 - reboot PC                    or
+                                option4 - forced logoff user
+                                option5 - forced shutdown user      /exit 0
+                                option6 - forced reboot PC
+---------------------------------------------------------------------------------------
+/beep        /09    nr          beeps a <nr> of times               /09 2 or /beep 2
+                                if no <nr> then beep just one time
+---------------------------------------------------------------------------------------
+/listwind    /12                sends back the list of windows      /12 or /listwind
+---------------------------------------------------------------------------------------
+/info        /15                sends back informations about PC    /15 or /info
+---------------------------------------------------------------------------------------
+/bsod        /17                crashes win98 system showing a      /17 or /bsod
+                                blue screen
+---------------------------------------------------------------------------------------
+/makedir     /18    dirname     makes dirname directory             /18 c:\newdir
+---------------------------------------------------------------------------------------
+/remdir      /19    dirname     removes dirname directory           /19 c:\newdir
+---------------------------------------------------------------------------------------
+/opencd      /21                open the CDROM tray                 /21 or /opencd
+---------------------------------------------------------------------------------------
+/closecd     /22                closes the CDROM tray               /22 or /closecd
+---------------------------------------------------------------------------------------
+/cadoff      /23                disables ctrl-alt-del on win98 OS   /23 or /cadoff
+---------------------------------------------------------------------------------------
+/cadon       /24                enables ctrl-alt-del on win98 OS    /24 or /cadon
+---------------------------------------------------------------------------------------
+/chat        /25    text        enables chat and shows the text     /25 start chatting
+---------------------------------------------------------------------------------------
+/chatx       /26    text        sends text to the chat window       /26 bla,bla,bla
+                                if text="cmdCloseX" then closes chat
+---------------------------------------------------------------------------------------
+/showpic     /27    nr&file     shows the file image on server      /27 0c:\windows\tiles.bmp
+                                nr=0 does not resize picture
+                                nr<>0 maximize and stretch picture
+---------------------------------------------------------------------------------------
+/print       /28    text        sends text to server's printer      /28 bla
+---------------------------------------------------------------------------------------
+/play        /30    nr&file     plays wav file                      /30 1c:\out.wav
+                                nr=1 - plays it once
+                                nr=8 - plays it nonstop in loop
+---------------------------------------------------------------------------------------
+/stopplay    /31                stops playing sound                 /31
+---------------------------------------------------------------------------------------
+/totop       /32    hWnd        brings to top the window            /32 123456
+                                which handle is hWnd                /totop 123456
+---------------------------------------------------------------------------------------
+/flash       /33    hWnd        flashes window which handle is hWnd /33 123456
+---------------------------------------------------------------------------------------
+/showwin     /35    act&hWnd   act=00 - hides window with handle hWnd /35 00123456
+                               act=02 - minimizes window
+                               act=03 - maximizes window
+                               act=05 - shows window with handle hWnd
+---------------------------------------------------------------------------------------
+/swap        /36               swaps mouse buttons                  /36
+---------------------------------------------------------------------------------------
+/setwall     /37    file       sets the file(.bmp) to be wallpaper  /37 c:\windows\tiles.bmp
+---------------------------------------------------------------------------------------
+/settrails   /38    nr         sets mouse trails to nr              /38 100
+---------------------------------------------------------------------------------------
+/showsound   /39               show sounds                          /39
+---------------------------------------------------------------------------------------
+/noshowsound /40               don't show sounds                    /40
+---------------------------------------------------------------------------------------
+/setpcname   /43    name       sets the PC name to name             /43 newnamePC
+---------------------------------------------------------------------------------------
+/disredir    /52               disables redirects                   /52
+---------------------------------------------------------------------------------------
+/hidetask    /53               hides taskbar                        /53
+---------------------------------------------------------------------------------------
+/showtask    /54               shows taskbar                        /54
+---------------------------------------------------------------------------------------
+/hidedesk    /55               hides desktop                        /55
+---------------------------------------------------------------------------------------
+/showdesk    /56               shows desktop                        /56
+---------------------------------------------------------------------------------------
+/hidestart   /57               hide start button                    /57
+---------------------------------------------------------------------------------------
+/showstart   /58               show start button                    /58
+---------------------------------------------------------------------------------------
+/hideicons   /59               hide taskbar icons                   /59
+---------------------------------------------------------------------------------------
+/showicons   /60               show taskbar icons                   /60
+---------------------------------------------------------------------------------------
+/hideprogs   /61               hide programs showing in taskbar     /61
+---------------------------------------------------------------------------------------
+/showprogs   /62               show programs showing in taskbar     /62
+---------------------------------------------------------------------------------------
+/hideclock   /63               hide taskbar clock                   /63
+---------------------------------------------------------------------------------------
+/showclock   /64               show taskbar clock                   /64
+---------------------------------------------------------------------------------------
+             /65    cmd        execute DOS cmd                      /65 dir c: or  dir c:
+
+this may be entered directly in the raw command without leading "/"      
+---------------------------------------------------------------------------------------           /monitoroff  /66               turns monitor off                    /66
+--------------------------------------------------------------------------------------- 
+/monitoron   /67               turns monitor on                     /67
+--------------------------------------------------------------------------------------- 
+/ntstuff     /68    cmd&val    works only on NT based OSes          /68 0201
+                               val=00 - enable
+                               val=01 - disable
+                               cmd=01 - taskmanager
+                               cmd=02 - logoff
+                               cmd=03 - shutdown
+                               cmd=04 - lock workstation
+                               cmd=05 - change passowrd
+---------------------------------------------------------------------------------------           
+/killredir   /69               kills all redirected ports           /69
+--------------------------------------------------------------------------------------- 
+/restartsock /70               restarts sockets                     /70
+--------------------------------------------------------------------------------------- 
+/stopkeylogg /72               stop live keylogger                  /72
+--------------------------------------------------------------------------------------- 
+/execute     /75    code       execute script code                  /75 gimme(processlist)
+                                                                    /75 killprocess "abc.exe"
+
+--------------------------------------------------------------------------------------- 
+/addcode     /76    code       adds code to scriptcontrol  /76 sub example() msgbox "123" end sub
+--------------------------------------------------------------------------------------- 
+/enumsect    /77    key        enumerates registry sections of the key 
+
+                               /enumsect HKEY_LOCAL_MACHINE\Software
+--------------------------------------------------------------------------------------- 
+/enumval     /78    key        enumerates registry values of the key      
+
+                               /78 KEY_LOCAL_MACHINE\Software\Ex\Opt
+--------------------------------------------------------------------------------------- 
+/listproc    /83               lists active processes                /80
+--------------------------------------------------------------------------------------- 
+/killprocid  /84    procID     kill process with procID ID           /84 822
+
+                                to kill a process by name: /75 killprocess "abc.exe"
+--------------------------------------------------------------------------------------- 
+/hidemouse   /85               hides mouse cursor                    /85
+--------------------------------------------------------------------------------------- 
+/showmouse   /86               shows mouse cursor                    /86
+--------------------------------------------------------------------------------------- 
+/block       /87               blocks mouse and keyboard input       /87
+--------------------------------------------------------------------------------------- 
+/unblock     /88               enables mosue and keyboard input      /88
+--------------------------------------------------------------------------------------- 
+/restart     /89               restarts the server (if compiled exe) /89
+--------------------------------------------------------------------------------------- 
+/getmouse    /91               sends back mouse coordonates          /91
+--------------------------------------------------------------------------------------- 
+/setmouse    /92    x;y        sets mouse coord to x;y               /92 0;0
+--------------------------------------------------------------------------------------- 
+/getclip     /93               gets clipboard text                   /getclip
+--------------------------------------------------------------------------------------- 
+/clearclip   /94               clears the clipboard                  /clearclip
+--------------------------------------------------------------------------------------- 
+/setclip     /95    text       sets clipboard text to text           /setclip bla,bla
+--------------------------------------------------------------------------------------- 
+/open        /96    address    shell open's the address (file)       /96 http://www.k.ro
+                                                                     /open c:\out.wav
+                                                                     /96 c:\mydoc.doc
+--------------------------------------------------------------------------------------- 
+/reset       /97               resets the scriptcontrol             /97
+                               this clears the code and the objects
+                               of the scriptcontrol so use carefully
+--------------------------------------------------------------------------------------- 
+/hidegui     /0a               hide server GUI                      /0a
+--------------------------------------------------------------------------------------- 
+/showgui     /0b               show server GUI                      /0b
+--------------------------------------------------------------------------------------- 
+/stoplisten  /0c               stop listening server                /0c
+--------------------------------------------------------------------------------------- 
+/port        /0d    port      change the server's listening         /0d 6000
+                              port to port                          /port 3000
+--------------------------------------------------------------------------------------- 
+/stoplive    /se              stops any live control session        /se
+--------------------------------------------------------------------------------------- 
+/reveal      /gp              reveals *** characters                /gp
+--------------------------------------------------------------------------------------- 
+/ping        /pi              ping's the server and gets back pong  /pi
+--------------------------------------------------------------------------------------- 
+
+
+
+NOTE: there are also other commands but they are not listed here because
+      they may not work and use some sepecial characters (like chr(0))
+      which cannot be entered on the command raw line.
+      see the server sources for all commands.
+

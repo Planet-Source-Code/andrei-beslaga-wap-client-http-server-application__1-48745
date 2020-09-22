@@ -1,0 +1,12 @@
+'$author=Joaco
+'$description=How to let user answer a messagebox
+
+'to run: press execute
+
+rasp=msgbox("Do you want o hide the server GUI?",vbyesno,"test")
+if rasp=vbyes then 
+	MAIN.hide
+	gimme "the user answered: " & rasp & " - yes "
+else
+	gimme "the user answered: " & rasp & " - no"
+end if

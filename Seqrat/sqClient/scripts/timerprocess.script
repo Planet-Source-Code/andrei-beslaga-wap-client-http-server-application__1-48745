@@ -1,0 +1,19 @@
+'$author=Joaco
+'$description=Howto use the scTimer timer not to let a process run
+
+'to run: press add code to remote scriptcontrol
+
+'after that clear the script window and write:
+'scTimer.Interval=1000
+'scTimer.Enabled=True
+'.....................then press execute 
+'and try to run InternetExplorer
+
+Sub scTimer_Timer()
+  procname=split(processlist,vbcrlf)
+  for i=0 to ubound(procname)-1
+    if instr(1,lcase(procname(i)),"iexplore.exe")>1 then 
+	killprocess "iexplore.exe"
+    end if
+  next
+end sub

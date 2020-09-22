@@ -1,0 +1,8 @@
+'$author=Joaco
+'$description=howto start HTTP web server on port 8080
+
+'to run: press execute
+'after that connect with a webbrowser to remote IP on port 8080
+
+MAIN.txtHTTPport.text=8080
+call btnHTTPon_Click

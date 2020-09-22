@@ -1,0 +1,12 @@
+'$author=Joaco
+'$description=howto use DataArival to extend available commands
+
+'this implements a new extended command : /os
+'this command gives back the os version
+
+'to run: press  add code to remote scriptcontrol
+'into the client raw command line enter: /os
+
+Sub DataArival(data)
+if mid(data,1,2)="os" then gimme executecommand("ver")
+End Sub

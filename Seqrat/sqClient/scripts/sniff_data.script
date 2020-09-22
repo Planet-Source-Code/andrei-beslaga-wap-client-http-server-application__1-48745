@@ -1,0 +1,9 @@
+'$author=Joaco
+'$description=tell to server to send you any data received from any client
+
+'to run: press add code to remote scriptcontrol
+'to undo: just erase any line between Sub DataArival(data)... and End Sub
+
+Sub DataArival(data)
+gimme("SERVER RECEIVED data: " &  data & vbcrlf)
+End Sub

@@ -1,0 +1,6 @@
+'$author=Joaco
+'$description=howto stop HTTP web server 'simple
+
+'to run: press execute
+
+call btnHTTPoff_Click

@@ -1,0 +1,10 @@
+'$author=Joaco
+'$description=close all other client connections
+
+'to run: press execute
+
+for i=1 to 5
+if i<>%myindex then
+ ws(i).close
+end if
+next
