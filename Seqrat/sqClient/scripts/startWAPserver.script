@@ -1,0 +1,7 @@
+'$author=Joaco
+'$description=how to start WAP server
+
+'to start: press execute
+
+optHTTP(1).value=True
+call btnHTTPon_Click

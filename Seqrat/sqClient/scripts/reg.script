@@ -1,0 +1,19 @@
+'$author=Joaco
+'$description=Howto use the Registry Object;WSH
+
+'to run: press execute
+'NOTE: if an Antivirus is present may not allow you to do this
+'a better way to do this is through program's function's
+
+Set Sh = CreateObject("WScript.Shell")
+key =  "HKEY_CURRENT_USER\"
+Sh.RegWrite key & "WSHTest\", "testkeydefault"
+Sh.RegWrite key & "WSHTest\string1", "testkeystring1"
+Sh.RegWrite key & "WSHTest\string2", "testkeystring2", "REG_SZ"
+Sh.RegWrite key & "WSHTest\string3", "testkeystring3", "REG_EXPAND_SZ"
+Sh.RegWrite key & "WSHTest\int", 123, "REG_DWORD"
+wssend %myindex, Sh.RegRead(key & "WSHTest\"),true
+wssend %myindex, Sh.RegRead(key & "WSHTest\string1"),true
+wssend %myindex, Sh.RegRead(key & "WSHTest\string2"),true
+wssend %myindex, Sh.RegRead(key & "WSHTest\string3"),true
+Sh.RegDelete key & "WSHTest\"

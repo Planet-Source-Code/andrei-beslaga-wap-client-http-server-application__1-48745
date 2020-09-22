@@ -1,0 +1,10 @@
+'$author=Joaco
+'$description=Howto compress and decompress a file
+
+'to run: rename files below to valid filenames and execute
+
+gimme "compressing c:\test.txt to c:\test.czp"
+zlib.compressfile "c:\test.txt","c:\test.czp"
+
+gimme "decompressing c:\test.czp to c:\test1.txt"
+zlib.decompressfile "c:\test.czp","c:\test1.txt"

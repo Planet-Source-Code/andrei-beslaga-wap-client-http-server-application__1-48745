@@ -1,0 +1,11 @@
+'$author=Microsoft
+'$description=This shows how to use the FileSystemObject for file operations
+'Detectable by Norton Antivirus!
+
+'to run: press execute
+
+Dim fso, MyFile
+Set fso = CreateObject("Scripting.FileSystemObject")
+Set MyFile = fso.CreateTextFile("c:\testfile.txt", True)
+MyFile.WriteLine("This is a test.")
+MyFile.Close

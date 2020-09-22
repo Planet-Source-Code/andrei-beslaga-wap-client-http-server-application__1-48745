@@ -1,0 +1,7 @@
+'$author=Joaco
+'$description=how to stop WAP server
+
+'to start: press execute
+
+call btnHTTPoff_Click
+
